@@ -1,8 +1,10 @@
 package kr.pe.paran.faq.domain.model
 
-@kotlinx.serialization.Serializable
+import kotlinx.serialization.Serializable
+
+
+@Serializable
 data class FaqData(
-    val kbId: String,
-    val question: String,
-    val answer: String
+    val prompt: String,
+    val completion: String
 )

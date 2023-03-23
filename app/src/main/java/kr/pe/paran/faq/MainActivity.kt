@@ -6,14 +6,12 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import kotlinx.coroutines.launch
-import kr.pe.paran.faq.data.network.Network
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
+import kr.pe.paran.faq.common.utils.Logcat
+import kr.pe.paran.faq.domain.model.FaqData
+import kr.pe.paran.faq.present.screen.MainScreen
 import kr.pe.paran.faq.ui.theme.FAQTheme
 
 class MainActivity : ComponentActivity() {
@@ -21,32 +19,14 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             FAQTheme {
-                // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Greeting("Android")
-//                    val coroutineScope = rememberCoroutineScope()
-                    val network = Network()
-                    LaunchedEffect(key1 = Unit, block = {
-                        network.search(1)
-                    })
+                    MainScreen()
+
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    FAQTheme {
-        Greeting("Android")
     }
 }
