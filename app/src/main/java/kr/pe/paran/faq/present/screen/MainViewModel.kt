@@ -26,14 +26,14 @@ class MainViewModel : ViewModel() {
         val faqList = mutableListOf<FaqData>()
         viewModelScope.launch {
             // 1.. 137
-            (1..137).forEach {
+            (1..4).forEach {
                 _pageNo.value = it
                 val list = network.search(it)
                 faqList.addAll(list)
             }
 
             val data = Json.encodeToString(faqList)
-            saveFile(context = context, data)
+            saveFile(context = context, data = data)
         }
     }
 

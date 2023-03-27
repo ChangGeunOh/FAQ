@@ -45,7 +45,8 @@ class Network {
     suspend fun search(page: Int): List<FaqData> {
 
         val faqList = mutableListOf<FaqData>()
-        val faqUrl = "https://ermsweb.kt.com/pc/faq/faqListCateAjax.do?pageNo=$page"
+        // https://ermsweb.kt.com/pc/faq/faqListCateAjax.do?parentNodeId=NODE0000000101
+        val faqUrl = "https://ermsweb.kt.com/pc/faq/faqListCateAjax.do?parentNodeId=NODE0000000101&pageNo=$page"
         getClient().use { client ->
 
             var response = client.request(urlString = faqUrl) {

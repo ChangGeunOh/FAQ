@@ -9,7 +9,7 @@ import java.io.File
 object Utils {
 
     fun shareFile(context: Context, file: File) {
-        val dataType = "application/vnd.ms-excel"
+        val dataType = "text/plain"
         val attachmentUri = FileProvider.getUriForFile(
             context,
             "${context.packageName}.provider",
